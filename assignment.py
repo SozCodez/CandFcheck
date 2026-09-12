@@ -1205,6 +1205,21 @@ print(highest_result)
 # WITHOUT using min(), RETURN the lowest value.
 #
 # Test it at least THREE times.
+def lowest_of_three(a, b, c):
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    elif c > a and c > b:
+        return c
+
+return1 = lowest_of_three(12, 3 , 9)
+return2 = lowest_of_three(1, 6, 9)
+return3 = lowest_of_three(12, 1345, 1)
+
+print(return1)
+print(return2)
+print(return3)
 
 
 # TASK 45:
@@ -1226,6 +1241,21 @@ print(highest_result)
 # middle_of_three(10, 30, 20)
 # middle_of_three(50, 5, 25)
 # middle_of_three(8, 7, 9)
+def middle_of_three(a, b, c):
+    if a > b and a < c or a < b and a > c:
+        return a
+    elif b > a and b < c or b < a and b > c:
+        return b
+    elif c > a and c < b or c < a and c > b:
+        return c
+
+return1 = middle_of_three(10, 30, 20)
+return2 = middle_of_three(50, 5, 25)
+return3 = middle_of_three(8, 7, 9)
+
+print(return1)
+print(return2)
+print(return3)
 
 
 # ============================================================
@@ -1266,6 +1296,27 @@ print(highest_result)
 #
 # IMPORTANT:
 # Do NOT repeat the highest/lowest logic outside the functions.
+def get_highest(a, b, c):
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    elif c > b and c > a:
+        return c
+
+def get_lowest(a, b, c):
+    if a < b and a < c:
+        return a
+    elif b < a and b < c:
+        return b
+    elif c < a and c < b:
+        return c
+
+highest = get_highest(30, 10, 20)
+lowest = get_lowest(30, 10, 20)
+
+difference = highest - lowest
+print(difference)
 
 
 # TASK 47:
@@ -1287,6 +1338,15 @@ print(highest_result)
 #
 # or:
 # Small spread
+highest1 = get_highest(9, 4, 15)
+lowest1 = get_lowest(9, 4, 15)
+difference1 = highest1 - lowest1
+
+if difference1 > 10:
+    print("Large spread")
+else:
+    print("Small spread")
+
 
 
 # TASK 48:
@@ -1314,7 +1374,16 @@ print(highest_result)
 #
 # THINK:
 # How can one function call feed into another?
+def best_of_two(a, b):
+    if a > b:
+        return a
+    else:
+        return b
 
+best1 = best_of_two(12, 50)
+highest = best_of_two(best1, 31)
+
+print(highest)
 
 # TASK 49:
 # Create a function named:
@@ -1331,10 +1400,22 @@ print(highest_result)
 #
 # Store the final result in:
 #
+"""
+changed lowest to worst, lowest already used
+"""
 # lowest
 #
 # Print lowest.
+def worst_of_two(a ,b):
+    if a < b:
+        return a
+    else:
+        return b
 
+worst1 = worst_of_two(22, 5)
+worst = worst_of_two(worst1, 17)
+
+print(worst)
 
 # ============================================================
 # SECTION 10 — LOGIC CHALLENGES
@@ -1356,7 +1437,13 @@ print(highest_result)
 # b is not middle
 #
 # Do NOT calculate the middle value separately first.
-
+a = 12
+b = 7
+c = 19
+if b < a and b > c or b > a and b < c:
+    print("b is middle")
+else:
+    print("b is not middle")
 
 # TASK 51:
 # Create:
@@ -1372,6 +1459,13 @@ print(highest_result)
 #
 # or:
 # Highest is unique
+a = 25
+b = 25
+c = 10
+if a > b and a == c or a > c and a == b or b > a and b == c:
+    print("Highest is tied")
+else:
+    print("Highest is unique")
 
 
 # TASK 52:
@@ -1388,7 +1482,15 @@ print(highest_result)
 # Neither
 #
 # Print ONE result.
-
+a = 3
+b = 8
+c = 5
+if a > b and b > c:
+    print("Strictly decreasing")
+elif a < b and b < c:
+    print("Strictly increasing")
+else:
+    print("Neither")
 
 # TASK 53:
 # Create:
@@ -1410,6 +1512,13 @@ print(highest_result)
 # Non-decreasing
 # OR
 # Not non-decreasing
+a = 5
+b = 5
+c = 10
+if a <= b and b <= c:
+    print("Non-decreasing")
+else:
+    print("Not non-decreasing")
 
 
 # TASK 54:
@@ -1434,6 +1543,14 @@ print(highest_result)
 # Entry denied
 #
 # Read this one carefully.
+age = 17
+has_permission = True
+has_ticket = False
+
+if age >= 18 or has_permission == True and has_ticket == True:
+    print("Entry allowed")
+else:
+    print("Entry denied")
 
 
 # TASK 55:
@@ -1457,6 +1574,14 @@ print(highest_result)
 # Fail
 #
 # Only ONE message should print.
+score = 88
+attendance = 92
+if score >= 90 and attendance >= 90:
+    print("Honors")
+elif score >= 70 and attendance >= 75:
+    print("Pass")
+else:
+    print("Fail")
 
 
 # ============================================================
@@ -1476,6 +1601,13 @@ print(highest_result)
 #     print("Passing")
 # if score >= 90:
 #     print("Excellent")
+score = 95
+
+if score >= 95:
+    print("Excellent")
+elif score >= 70:
+    print("Passing")
+
 
 
 # TASK 57:
@@ -1489,6 +1621,13 @@ print(highest_result)
 #     print("Adult")
 # else:
 #     print("Minor")
+age = 18
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")
+
 
 
 # TASK 58:
@@ -1505,6 +1644,12 @@ print(highest_result)
 #     print("Valid")
 # else:
 #     print("Invalid")
+number = 20
+
+if number >= 10 and number <= 20:
+    print("Valid")
+else:
+    print("Invalid")
 
 
 # TASK 59:
@@ -1518,6 +1663,12 @@ print(highest_result)
 #
 # result = add_numbers(4, 6)
 # print(result)
+def add_numbers(a, b):
+    total = a + b
+    return total
+
+result = add_numbers(4, 6)
+print(result)
 
 
 # TASK 60:
@@ -1529,6 +1680,12 @@ print(highest_result)
 #
 # result = subtract(20, 8)
 # print(result)
+def subtract(a, b):
+    answer = a - b
+    return answer
+
+result = subtract(20, 8)
+print(result)
 
 
 # ============================================================
@@ -1576,6 +1733,65 @@ print(highest_result)
 # analyze_three_numbers(20, 20, 20)
 # analyze_three_numbers(5, 5, 9)
 # analyze_three_numbers(-5, 0, -12)
+def analyze_three_numbers(a, b, c):
+    def highest():
+        if a > b and a > c:
+            highestA = a
+        elif b > a and b > c:
+            highestA = b
+        elif c > a and c > b:
+            highestA = c
+        else:
+            highestA = "No highest"
+
+        return highestA
+
+    def lowest():
+        if a < b and a < c:
+            lowestA = a
+        elif b < a and b < c:
+            lowestA = b
+        elif c < a and c < b:
+            lowestA = c
+        else:
+            lowestA = "No lowest"
+        return lowestA
+
+    def middle():
+        if a > b and a < c or a > c and a < b:
+            middleA = a
+        elif b > a and b < c or b < a and b > c:
+            middleA = b
+        elif c > a and c < b or c < a and c > b:
+            middleA = c
+        else:
+            middleA = "No middle"
+        return middleA
+
+    def equal():
+        if a == b and a == c:
+            equalA = "All equal"
+        elif a == b and a != c or a == c and c != b or b == c and b != a:
+            equalA = "Exactly two equal"
+        else:
+            equalA = "All different"
+        return equalA
+
+    highestB = highest()
+    lowestB = lowest()
+    middleB = middle()
+    equalB = equal()
+
+    print("Highest: ", highestB)
+    print("Lowest: ", lowestB)
+    print("Middle: ", middleB)
+    print()
+    print(equalB)
+
+analyze_three_numbers(8, 3, 15)
+analyze_three_numbers(20, 20, 20)
+analyze_three_numbers(5, 5, 9)
+analyze_three_numbers(-5, 0, -20)
 
 
 # ============================================================
