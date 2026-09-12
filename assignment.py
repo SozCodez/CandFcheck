@@ -885,6 +885,16 @@ check_number(0)
 # Odd
 #
 # Test it at least FOUR times.
+def check_even_odd(number):
+    if number % 2 == 0:
+        print("Even")
+    else:
+        print("Odd")
+
+check_even_odd(2)
+check_even_odd(7)
+check_even_odd(145)
+check_even_odd(100)
 
 
 
@@ -917,6 +927,22 @@ check_number(0)
 # 18
 # 64
 # 65
+def ticket_type(age):
+    if age < 13:
+        print("Child")
+    elif age < 18:
+        print("Teen")
+    elif age < 65:
+        print("Adult")
+    else:
+        print("Senior")
+
+ticket_type(12)
+ticket_type(13)
+ticket_type(17)
+ticket_type(18)
+ticket_type(64)
+ticket_type(65)
 
 
 # TASK 36:
@@ -936,6 +962,17 @@ check_number(0)
 # find_highest(5, 20, 11)
 # find_highest(100, 25, 60)
 # find_highest(8, 9, 30)
+def find_highest(a, b, c):
+    if a > b and a > c:
+        print("The highest value is ", a)
+    elif b > a and b > c:
+        print("The highest value is ", b)
+    elif c > a and c > b:
+        print("The highest value is ", c)
+
+find_highest(5, 20, 11)
+find_highest(100, 25, 60)
+find_highest(8, 9, 30)
 
 
 # TASK 37:
@@ -952,6 +989,17 @@ check_number(0)
 # WITHOUT using min(), print the lowest value.
 #
 # Test at least THREE times.
+def find_lowest(a, b, c):
+    if a < b and a < c:
+        print( a," is the lowest")
+    elif b < a and b < c:
+        print( b," is the lowest")
+    elif c < a and c < b:
+        print( c," is the lowest")
+
+find_lowest( 1, 3, 9)
+find_lowest( 9, 3829, 45)
+find_lowest( 1673, 327, 1738)
 
 
 # TASK 38:
@@ -972,7 +1020,17 @@ check_number(0)
 # find_middle(10, 30, 20)
 # find_middle(100, 5, 50)
 # find_middle(7, 9, 8)
+def find_middle(a, b, c):
+    if a > b and a < c or a < b and a > c:
+        print(a, " is the middle")
+    elif b > a and b < c or b < a and b > c:
+        print(b, " is the middle")
+    elif c > a and c < b or c < a and c > b:
+        print(c, " is the middle")
 
+find_middle(10, 30, 20)
+find_middle(100, 5, 50)
+find_middle(7, 9, 8)
 
 # TASK 39:
 # Create a function named:
@@ -992,7 +1050,18 @@ check_number(0)
 # All different
 #
 # Test all three situations.
+def compare_three(a, b, c):
+    if a == b and a == c:
+        print("All equal")
+    elif a == b and a != c or a == c and a != b or b == c and b != a:
+        print("Exactly two equal")
+    else:
+        print("All different")
 
+compare_three(1 , 2, 3)
+compare_three(1, 1, 3)
+compare_three(1, 1, 1)
+compare_three(1, 2, 1)
 
 # TASK 40:
 # Create a function named:
@@ -1022,6 +1091,11 @@ check_number(0)
 #
 # should still print:
 # In range
+def is_in_range(number, low, high):
+    if number >= low and number <= high:
+        print("In range")
+    else:                           #cant make low and high pass backwards without min/max()
+        print("Out of range")
 
 
 # ============================================================
@@ -1047,7 +1121,11 @@ check_number(0)
 # multiplication_result
 #
 # Print multiplication_result.
+def multiply_numbers(num1, num2):
+    return num1 * num2
 
+multiplication_result = multiply_numbers(6, 7)
+print(multiplication_result)
 
 # TASK 42:
 # Create a function named:
@@ -1070,7 +1148,16 @@ check_number(0)
 # bigger
 #
 # Print bigger.
+def larger_number(a , b):
+    if a > b:
+        return a
+    elif b > a:
+        return b
+    else:
+        return a
 
+bigger = larger_number(15, 40)
+print(bigger)
 
 # TASK 43:
 # Create a function named:
@@ -1092,6 +1179,16 @@ check_number(0)
 # highest_result
 #
 # Print highest_result.
+def highest_of_three(a, b, c):
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    elif c > a and c > b:
+        return c
+
+highest_result = highest_of_three(18, 42, 27)
+print(highest_result)
 
 
 # TASK 44:
