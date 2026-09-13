@@ -1785,8 +1785,9 @@ def analyze_three_numbers(a, b, c):
     print("Highest: ", highestB)
     print("Lowest: ", lowestB)
     print("Middle: ", middleB)
-    print()
     print(equalB)
+    print()
+
 
 analyze_three_numbers(8, 3, 15)
 analyze_three_numbers(20, 20, 20)
@@ -1826,6 +1827,38 @@ analyze_three_numbers(-5, 0, -20)
 # - Do NOT use sorting
 #
 # Your program must still work if the order of inputs changes.
+print("Please enter 3 whole numbers: ")
+user_num1 = input()
+user_num2 = input()
+user_num3 = input()
+print()
+
+if user_num1 <= user_num2 and user_num2 <= user_num3:
+    print(user_num1)
+    print(user_num2)
+    print(user_num3)
+elif user_num1 <= user_num3 and user_num3 <= user_num2:
+    print(user_num1)
+    print(user_num3)
+    print(user_num2)
+elif user_num2 <= user_num1 and user_num1 <= user_num3:
+    print(user_num2)
+    print(user_num1)
+    print(user_num3)
+elif user_num2 <= user_num3 and user_num3 <= user_num1:
+    print(user_num2)
+    print(user_num3)
+    print(user_num1)
+elif user_num3 <= user_num1 and user_num1 <= user_num2:
+    print(user_num3)
+    print(user_num1)
+    print(user_num2)
+elif user_num3 <= user_num2 and user_num2 <= user_num1:
+    print(user_num3)
+    print(user_num2)
+    print(user_num1)
+
+print()
 
 
 # ============================================================
@@ -1864,6 +1897,30 @@ analyze_three_numbers(-5, 0, -20)
 # Lowest: [lowest]
 #
 # Do NOT use min(), max(), or sorting.
+print("Give me 3 numbers: ")
+print()
+
+def get_middle(a, b, c):
+    if a > b and a < c or a < b and a > c:
+        middle = a
+    elif b > a and b < c or b < a and b > c:
+        middle = b
+    elif c > a and c < b or c < a and c > b:
+        middle = c
+
+    return middle
+
+first = input()
+second = input()
+third = input()
+
+highest = get_highest(first, second, third)
+lowest = get_lowest(first, second, third)
+middle = get_middle(first, second, third)
+
+print("Highest: ", highest)
+print("Middle: ", middle)
+print("Lowest: ", lowest)
 
 
 # ============================================================
@@ -1901,6 +1958,18 @@ analyze_three_numbers(-5, 0, -20)
 # THINK:
 # The first person should still be accepted even though
 # the interview value is "fail".
+def admission_decision(grade, attendance, interview):
+    if grade >= 90 and attendance >= 90:
+        print("Accepted")
+    elif grade >= 80 and attendance >= 80 and interview == "pass":
+        print("Accepted")
+    else:
+        print("Not accepted")
+
+admission_decision(95, 95, "fail")
+admission_decision(85, 85, "pass")
+admission_decision(85, 85, "fail")
+admission_decision(75, 100, "pass")
 
 
 # ============================================================
@@ -1934,7 +2003,29 @@ analyze_three_numbers(-5, 0, -20)
 # - Do NOT use sorting
 #
 # Your logic should still work if the variable values change.
+a = 15
+b = 8
+c = 15
 
+if a > b and a > c:
+    highest = a
+    tied = "Unique"
+elif b > a and b > c:
+    highest = b
+    tied = "Unique"
+elif c > b and c > a:
+    highest = c
+    tied = "Unique"
+elif a == b and b > c or a == b and b < c or a == c and c > b or a == c and c < b:
+    highest = a
+    tied = "Tied"
+elif b == c and c < a or b == c and c > a:
+    highest = b
+    tied = "Tied"
+
+print()
+print("Highest: ", highest)
+print(tied, " highest")
 
 
 
@@ -1996,7 +2087,8 @@ analyze_three_numbers(-5, 0, -20)
 #
 # CHALLENGE:
 # The same function must be able to convert in BOTH directions.
-
+def convert_temperature(temperature, scale):
+    
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 67 — KELVIN CONVERTER
