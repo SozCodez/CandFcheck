@@ -2087,8 +2087,26 @@ print(tied, " highest")
 #
 # CHALLENGE:
 # The same function must be able to convert in BOTH directions.
+#scale if C or F
 def convert_temperature(temperature, scale):
-    
+    if scale == "c":
+        fahrenheit = temperature * 1.8 + 32
+        return fahrenheit
+    elif scale == "f":
+        celsius = (temperature - 32) / 1.8
+        return celsius
+
+test1 = convert_temperature(0, "c")
+test2 = convert_temperature(100, "c")
+test3 = convert_temperature(32, "f")
+test4 = convert_temperature(68, "f")
+
+print(test1)
+print(test2)
+print(test3)    
+print(test4)
+
+print()
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 67 — KELVIN CONVERTER
@@ -2126,6 +2144,23 @@ def convert_temperature(temperature, scale):
 #
 # THINK:
 # One input can require TWO calculations before you return the answer.
+def to_kelvin(temperature, scale):
+    if scale == "c":
+        kelvin = temperature + 273.15
+    elif scale == "f":
+        celcius = (temperature - 32) / 1.8
+        kelvin = celcius + 273.15
+    return kelvin
+
+test1 = to_kelvin(0, "c")
+test2 = to_kelvin(100, "c")
+test3 = to_kelvin(32, "f")
+test4 = to_kelvin(212, "f")
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
 
 
 # ------------------------------------------------------------
@@ -2160,6 +2195,28 @@ def convert_temperature(temperature, scale):
 #
 # THINK:
 # Do not accidentally charge $3 for the first hour.
+print()
+
+def parking_cost(hours):
+    if hours == 1:
+        cost = 5
+    elif hours > 1 and hours < 8:
+        cost = hours * 3 + 2
+    elif hours >= 8:
+        cost = 25
+    return cost
+
+test1 = parking_cost(1)
+test2 = parking_cost(2)
+test3 = parking_cost(5)
+test4 = parking_cost(9)
+test5 = parking_cost(20)
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
+print(test5)
 
 
 # ------------------------------------------------------------
@@ -2195,6 +2252,29 @@ def convert_temperature(temperature, scale):
 # THINK:
 # First determine the base ticket price.
 # Then decide whether something must be added.
+def movie_total(age, is_weekend):
+    if age < 13:
+        cost = 8
+    elif age >= 13 and age < 65:
+        cost = 12
+    elif age >= 65:
+        cost = 7
+
+    if is_weekend == True:
+        cost = cost + 3
+    else:
+        cost = cost
+
+    test1 = movie_total(10, False)
+    test2 = movie_total(10, True)
+    test3 = movie_total(30, False)
+    test4 = movie_total(70, True)
+
+    print(test1)
+    print(test2)
+    print(test3)
+    print(test4)
+
 
 
 # ------------------------------------------------------------
@@ -2229,6 +2309,23 @@ def convert_temperature(temperature, scale):
 #
 # IMPORTANT:
 # For 120 units, only 20 units should be charged at $0.20.
+print()
+def electric_bill(usage):
+    if usage >= 0 and usage <= 100:
+        cost = usage * 0.1
+    elif usage > 100:
+        cost = 10 + (usage - 100) * 0.2
+    return cost
+
+test1 = electric_bill(50)
+test2 = electric_bill(100)
+test3 = electric_bill(120)
+test4 = electric_bill(200)
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
 
 
 # ------------------------------------------------------------
@@ -2265,6 +2362,24 @@ def convert_temperature(temperature, scale):
 #
 # THINK:
 # A year divisible by 100 is NOT automatically a leap year.
+def is_leap_year(year):
+    if year % 400 == 0 or year % 4 == 0 and year % 100 != 0:
+        leapYear = True
+    else:
+        leapYear = False
+    return leapYear
+
+test1 = is_leap_year(2024)
+test2 = is_leap_year(2025)
+test3 = is_leap_year(1900)
+test4 = is_leap_year(2000)
+
+print()
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
 
 
 # ------------------------------------------------------------
@@ -2301,6 +2416,24 @@ def convert_temperature(temperature, scale):
 #
 # Notice that 2 + 3 = 5 is NOT enough.
 # It must be GREATER THAN.
+print()
+def valid_triangle(a, b, c):
+    if a + b > c and a + c > b and b + c > a:
+        canForm = True
+    else:
+        canForm = False
+    return canForm
+
+test1 = valid_triangle(3, 4, 5)
+test2 = valid_triangle(5, 5, 5)
+test3 = valid_triangle(1, 2, 10)
+test4 = valid_triangle(2, 3, 5)
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
+print()
 
 
 # ------------------------------------------------------------
@@ -2344,7 +2477,33 @@ def convert_temperature(temperature, scale):
 #
 # THINK:
 # Check whether the triangle is valid BEFORE classifying it.
+def triangle_type(a, b, c):
+    if a + b > c and a + c > b and b + c > a:
+        canForm = True
+    else:
+        canForm = False
 
+    if canForm == True and a == b and b == c:
+        typeT = "equilateral"
+    elif canForm == True and a == b or b == c or a == c:
+        typeT = "isosceles"
+    elif canForm == True:
+        typeT = "scalene"
+
+    if canForm == False:
+        typeT = "invalid"
+    return typeT
+
+test1 = triangle_type(3, 3, 3)
+test2 = triangle_type(5, 5, 8)
+test3 = triangle_type(3, 4, 5)
+test4 = triangle_type(1, 2, 10)
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
+print()
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 74 — ROCK PAPER SCISSORS
@@ -2399,6 +2558,25 @@ def convert_temperature(temperature, scale):
 #
 # This is a logic problem.
 # There are several possible combinations.
+def rps_winner(player1, player2):
+    if player1 == "rock" and player2 == "scissors" or player1 == "scissors" and player2 == "paper" or player1 == "paper" and player2 == "rock":
+        win = "player1"
+    elif player2 == "rock" and player1 == "scissors" or player2 == "scissors" and player1 == "paper" or player2 == "paper" and player1 == "rock": 
+        win = "player2"
+    elif player1 == player2:
+        win = "tie"
+    return win
+
+test1 = rps_winner("rock", "scissors")  
+test2 = rps_winner("paper", "rock")     
+test3 = rps_winner("rock", "paper")     
+test4 = rps_winner("paper", "paper") 
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
+print()
 
 
 # ------------------------------------------------------------
@@ -2432,7 +2610,33 @@ def convert_temperature(temperature, scale):
 # THINK:
 # A number may be above OR below 100.
 # You will need to determine each number's distance from 100.
+def closest_to_100(a, b):
+    if a > 100:
+        distanceA = a - 100
+    else:
+        distanceA = 100 - a
 
+    if b > 100:
+        distanceB = b - 100
+    else:
+        distanceB = 100 - b
+
+    if distanceA < distanceB:
+        closest = a
+    elif distanceB < distanceA:
+        closest = b
+    else:
+        closest = -1
+    return closest
+
+test1 = closest_to_100(90, 80)    
+test2 = closest_to_100(105, 120)  
+test3 = closest_to_100(90, 110)   
+
+print(test1)
+print(test2)
+print(test3)
+print()
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 76 — DELIVERY FEE
@@ -2467,7 +2671,24 @@ def convert_temperature(temperature, scale):
 #
 # THINK:
 # A large order does NOT always mean free delivery.
+def delivery_fee(order_total, distance):
+    if order_total >= 50 and distance <= 5:
+        return 0
+    elif distance <= 5:
+        return 5
+    else:
+        return 10
 
+test1 = delivery_fee(60, 3)
+test2 = delivery_fee(30, 3)
+test3 = delivery_fee(60, 8)
+test4 = delivery_fee(30, 8)
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
+print()
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 77 — ATM WITHDRAWAL
@@ -2499,7 +2720,23 @@ def convert_temperature(temperature, scale):
 # can_withdraw(500, 0)    -> False
 #
 # ALL conditions must be true.
+def can_withdraw(balance, amount):
+    if amount > 0 and amount <= balance and amount % 20 == 0:
+        withdraw = True
+    else:
+        withdraw = False
+    return withdraw
 
+test1 = can_withdraw(500, 100)
+test2 = can_withdraw(500, 125)
+test3 = can_withdraw(50, 100)
+test4 = can_withdraw(500, 0)
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
+print()
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 78 — RESTAURANT TIP
@@ -2538,7 +2775,27 @@ def convert_temperature(temperature, scale):
 #
 # THINK:
 # RETURN only the TIP, not the final bill.
+def tip_amount(bill, service):
+    if service == "poor":
+        bonus = 0.10
+    elif service == "good":
+        bonus = 0.18
+    elif service == "excellent":
+        bonus = 0.25
 
+    amount = bill * bonus
+    return amount
+
+test1 = tip_amount(100, "poor")
+test2 = tip_amount(100, "good")
+test3 = tip_amount(100, "excellent")
+test4 = tip_amount(80, "good")
+
+print(round(test1, 1))
+print(round(test2, 1))
+print(round(test3, 1))
+print(round(test4, 1))
+print()
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 79 — PHONE BATTERY WARNING
@@ -2576,7 +2833,26 @@ def convert_temperature(temperature, scale):
 #
 # THINK:
 # The order of the conditions matters.
+def battery_status(battery, is_charging):
+    if battery <= 5 and is_charging == False:
+        return "critical"
+    elif battery <= 20 and is_charging == False:
+        return "low"
+    elif is_charging == True:
+        return "charging"
+    else:
+        return "normal"
 
+test1 = battery_status(3, False)
+test2 = battery_status(15, False)
+test3 = battery_status(3, True)
+test4 = battery_status(80, False)
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
+print()
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 80 — TAXI FARE
@@ -2608,7 +2884,24 @@ def convert_temperature(temperature, scale):
 #
 # Build the final answer from the rules instead of
 # hard-coding different totals.
+def taxi_fare(miles, is_night):
+    base = 4
+    mile = miles * 2
 
+    if is_night == True:
+        night = 5
+    else:
+        night = 0
+    return base + mile + night
+
+test1 = taxi_fare(0, False)
+test2 = taxi_fare(5, False)
+test3 = taxi_fare(5, True)
+
+print(test1)
+print(test2)
+print(test3)
+print()
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 81 — GAME DAMAGE
@@ -2643,7 +2936,26 @@ def convert_temperature(temperature, scale):
 #
 # THINK:
 # The critical hit should happen AFTER defense is removed.
+def calculate_damage(attack, defense, critical):
+    damage = attack - defense
 
+    if damage <= 0:
+        damage = 0
+
+    if critical == True:
+        damage = damage * 2
+    return damage
+
+test1 = calculate_damage(20, 5, False)
+test2 = calculate_damage(20, 5, True)
+test3 = calculate_damage(5, 20, False)
+test4 = calculate_damage(5, 20, True)
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
+print()
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 82 — STORE COUPON
@@ -2681,7 +2993,25 @@ def convert_temperature(temperature, scale):
 #
 # THINK:
 # A 25% discount means the customer pays 75% of the price.
+def final_price(price, coupon):
+    if coupon == "none":
+        discount = 0.0
+    elif coupon == "SAVE10":
+        discount = 0.1
+    elif coupon == "SAVE25":
+        discount = 0.25
+    return price - (price * discount)
 
+test1 = final_price(100, "none")
+test2 = final_price(100, "SAVE10")
+test3 = final_price(100, "SAVE25")
+test4 = final_price(80, "SAVE25")
+
+print(test1)
+print(test2)
+print(test3)
+print(test4)
+print()
 
 # ============================================================
 # GIT CHECK

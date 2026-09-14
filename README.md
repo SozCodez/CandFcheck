@@ -5,4 +5,7 @@ SVCTE conditionals and functions checkpoint
 taking a break for the rest of class, got to task 34
 
 9/12
-got to task 66, finished for rest of today
+got to task 66, finished for rest of 
+
+9/13
+finished rest of assignment
